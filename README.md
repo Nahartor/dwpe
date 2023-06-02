@@ -24,5 +24,13 @@ Este proyecto tiene como finalidad facilitar, especialmente a aquellos que carez
 - El fichero `docker-compose.yml` contiene el código necesario para la creación de los contenedores. En este fichero podrá encontrar una serie de variables de entorno, las cuales puede modificar según sus necesidades siguiendo los comentarios que hay junto a las mismas.  
 No obstante, a continuación explicaremos pormenorizadamente cada una de ellas en orden de aparición en el documento:
     
-    - `WORDPRESS_DB_HOST`  -> En esta variable se almacena el nombre del contenedor o la ip del servidor del que WordPress tomará la bases datos. Por defecto es `db`, sin embargo puedes modificar este parámetro y sustituirlo por el nombre de otro contenedor de MySQL que tengas o incluso la IP de un servidor de bases de datos externo.
-    
+    - `WORDPRESS_DB_HOST` --> En esta variable se almacena el nombre del contenedor o la ip del servidor del que WordPress tomará la bases datos. Por defecto es `db`, sin embargo puedes modificar este parámetro y sustituirlo por el nombre de otro contenedor de MySQL que tengas o incluso la IP de un servidor de bases de datos externo.
+    - `WORDPRESS_DB_USER` --> En esta variable se almacena el nombre de usuario de la base datos.
+    - `WORDPRESS_DB_PASSWORD` --> En esta variable se almacena la contraseña del usuario especificado en la variable anterior.
+    - `WRODPRESS_DB_NAME` --> En esta variable se almacena el nombre de la base de datos en la que WordPress almacenara toda su información.
+    - `MYSQL_ROOT_PASSWORD` --> En esta variable se almacena la contraseña del usuario root de la base de datos.
+    - `MYSQL_USER` --> En esta variable se almacena el nombre de usuario de la base de datos.
+    - `MYSQL_PASSWORD` --> En esta variable se almacena la contraseña del usuario especificado en la variable anterior.
+    - `MYSQL_DATABASE` --> En esta variable se almacena el nombre de la base de datos en la que WordPress almacenará toda su información.
+
+**IMPORTANTE:** Alagunas variables estan marcadas con un número entre paréntesis. Es importante que si se modifica una variable todas aquellas variables que estén marcadas con el mismo número deben ser modificadas de igual manera.
