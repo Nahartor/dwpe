@@ -5,7 +5,7 @@ services:
     build: .
     image: wordpress:latest
     ports:
-      - 8080:80
+      - 8080:80 # If port 8080 is being used on your machine by another service, modify this line and write the desired port to the left of the colon where you want to redirect the WordPress container.
     environment:
       WORDPRESS_DB_HOST: db # Database server that WordPress will connect to*
       WORDPRESS_DB_USER: wordpress # User that WordPress will use to log in to the database (1) 
