@@ -15,8 +15,10 @@ Este proyecto tiene como finalidad facilitar, especialmente a aquellos que carez
     ├── archivos_configuracion  
     │   ├── wp-config.php  
     │   └── my.cnf  
+    ├── Docker_and_docker_compose_installation_and_management_guide.md
     ├── docker-compose.yml  
-    ├── dockerfile  
+    ├── dockerfile
+    ├── Guia_de_instalación_y_manejo_de_docker_y_docker_compose.md   
     ├── install_docker_and_dependences.sh
     ├── LICENSE_ES.md
     ├── LICENSE.md
