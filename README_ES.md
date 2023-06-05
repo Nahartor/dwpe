@@ -11,35 +11,41 @@ Este proyecto tiene como finalidad facilitar, especialmente a aquellos que carez
 
 ## Estructura del proyecto
 
-    proyecto  
-    ├── archivos_configuracion  
-    │   ├── wp-config.php  
-    │   └── my.cnf  
-    ├── Docker_and_docker_compose_installation_and_management_guide.md
-    ├── docker-compose.yml  
-    ├── dockerfile
-    ├── Guia_de_instalación_y_manejo_de_docker_y_docker_compose.md   
-    ├── install_docker_and_dependences.sh
-    ├── LICENSE_ES.md
-    ├── LICENSE.md
-    ├── menu_docker.sh
-    ├── README_ES.md  
-    └── README.md  
+     wfd
+     ├── configuration_files
+     │ ├── wp-config.php
+     │ └── my.cnf
+     ├── Docker_and_docker_compose_installation_and_management_guide.md
+     ├── docker-compose.yml
+     ├── dockerfile
+     ├── Guia_de_instalación_y_manejo_de_docker_y_docker_compose.md  
+     ├── install_docker_and_dependencies.sh
+     ├── LICENSE_ES.md
+     ├── LICENSE.md
+     ├── menu_docker.sh
+     ├── README_ES.md 
+     └── README.md
 
 - El directorio `archivos_configuracion`contiene los archivos de configuracion personalizados que van a ser copiados al conrtenedor de WordPress.
 - El fichero `docker-compose.yml` contiene el código necesario para la creación de los contenedores. En este fichero podrá encontrar una serie de variables de entorno, las cuales puede modificar según sus necesidades siguiendo los comentarios que hay junto a las mismas.  
 No obstante, a continuación explicaremos pormenorizadamente cada una de ellas en orden de aparición en el documento:
     
-    - `WORDPRESS_DB_HOST` --> En esta variable se almacena el nombre del contenedor o la ip del servidor del que WordPress tomará la bases datos. Por defecto es `db`, sin embargo puedes modificar este parámetro y sustituirlo por el nombre de otro contenedor de MySQL que tengas o incluso la IP de un servidor de bases de datos externo.
-    - `WORDPRESS_DB_USER` --> En esta variable se almacena el nombre de usuario de la base datos. (1)
-    - `WORDPRESS_DB_PASSWORD` --> En esta variable se almacena la contraseña del usuario especificado en la variable anterior. (2)
-    - `WRODPRESS_DB_NAME` --> En esta variable se almacena el nombre de la base de datos en la que WordPress almacenara toda su información. (3)
-    - `MYSQL_ROOT_PASSWORD` --> En esta variable se almacena la contraseña del usuario root de la base de datos.
-    - `MYSQL_USER` --> En esta variable se almacena el nombre de usuario de la base de datos. (1)
-    - `MYSQL_PASSWORD` --> En esta variable se almacena la contraseña del usuario especificado en la variable anterior. (2)
-    - `MYSQL_DATABASE` --> En esta variable se almacena el nombre de la base de datos en la que WordPress almacenará toda su información. (3)
+  - `WORDPRESS_DB_HOST` --> En esta variable se almacena el nombre del contenedor o la ip del servidor del que WordPress tomará la bases datos. Por defecto es `db`, sin embargo puedes modificar este parámetro y sustituirlo por el nombre de otro contenedor de MySQL que tengas o incluso la IP de un servidor de bases de datos externo. (4)
+  - `WORDPRESS_DB_USER` --> En esta variable se almacena el nombre de usuario de la base datos. (1)
+  - `WORDPRESS_DB_PASSWORD` --> En esta variable se almacena la contraseña del usuario especificado en la variable anterior. (2)
+  - `WRODPRESS_DB_NAME` --> En esta variable se almacena el nombre de la base de datos en la que WordPress almacenara toda su información. (3)
+  - `MYSQL_ROOT_PASSWORD` --> En esta variable se almacena la contraseña del usuario root de la base de datos.
+  - `MYSQL_USER` --> En esta variable se almacena el nombre de usuario de la base de datos. (1)
+  - `MYSQL_PASSWORD` --> En esta variable se almacena la contraseña del usuario especificado en la variable anterior. (2)
+  - `MYSQL_DATABASE` --> En esta variable se almacena el nombre de la base de datos en la que WordPress almacenará toda su información. (3)
 
 **IMPORTANTE:** Alagunas variables estan marcadas con un número entre paréntesis. Es importante que si se modifica una variable todas aquellas variables que estén marcadas con el mismo número deben ser modificadas de igual manera.  
+
+- El fichero `configuration_files/wp-config.php` contiene una serie de variables, las cuales deben ser modificadas (si se desea) de acuerdo a lo expuesto anteriormente.
+  - `DB_NAME` -->  En esta variable se almacena el nombre de la base de datos en la que WordPress almacenara toda su información. (3)
+  - `DB_USER` --> En esta variable se almacena el nombre de usuario de la base de datos. (1)
+  - `DB_PASSWORD` --> En esta variable se almacena la contraseña del usuario especificado en la variable anterior. (2)
+  - `DB_HOST` --> En esta variable se almacena el nombre del contenedor o la ip del servidor del que WordPress tomará la bases datos. Por defecto es `db`, sin embargo puedes modificar este parámetro y sustituirlo por el nombre de otro contenedor de MySQL que tengas o incluso la IP de un servidor de bases de datos externo. (4)
 
 ## Instrucciones de uso  
 
@@ -55,14 +61,15 @@ No obstante, a continuación explicaremos pormenorizadamente cada una de ellas e
    3. GitHub CLI: esta opción solo es aplicable a equipos Windows que tengan la consola de Git instalada. Ya que este proyecto corre íntegramente en Linux usted debe ignorar esta opción.
    4. GitHub Desktop: esta opción solo es aplicable a equipos Windows. Ya que este proyecto corre íntegramente en Linux usted debe ignorar esta opción.
    5. Download ZIP: usted puede descargar este repositorio como un archivo comprimido de extension `.zip` y descomprimirlo en su servidor. De esta forma no tiene por qué instalar Git. Se recomienda descomprimir el contenido del archivo en el directorio `/root` 
-2. Asegurese de que los ficheros presentes en el directorio `proyecto` pertenecen al usuario y grupo **root**. Para ello ejecute el siguiente comando con permisos de superusuario:  
+2. Modifique si así lo desea las variables de entorno tal y como se expone en el punto **Estructura del proyecto**.
+3. Asegurese de que los ficheros presentes en el directorio `proyecto` pertenecen al usuario y grupo **root**. Para ello ejecute el siguiente comando con permisos de superusuario:  
    `sudo chown -R root:root ./proyecto`
-3. Asegurese de que los ficheros `install_docker_and_dependences.sh` y `menu_docker.sh` sean ficheros de tipo ejecutable. Para ello ejecute los siguientes comandos con permisos de superusuario:  
+4. Asegurese de que los ficheros `install_docker_and_dependences.sh` y `menu_docker.sh` sean ficheros de tipo ejecutable. Para ello ejecute los siguientes comandos con permisos de superusuario:  
    `chmod -x ./proyecto/install_docker_and_dependences.sh`  
    `chmod -x ./proyecto/menu_docker.sh`
-4. Ejecute el script `install_docker_and_dependences.sh` con permisos de superusuario:  
+5. Ejecute el script `install_docker_and_dependences.sh` con permisos de superusuario:  
    `sudo bash ./proyecto/install_docker_and_dependences.sh`
-5. Ejecute el script `menu_docker.sh` con permisos de superusuario:  
+6. Ejecute el script `menu_docker.sh` con permisos de superusuario:  
    `sudo bash ./proyecto/menu_docker.sh`
    
    El script `menu_docker.sh` desplegará un menú con las siguientes opciones:
@@ -72,7 +79,7 @@ No obstante, a continuación explicaremos pormenorizadamente cada una de ellas e
    4. Levantar un contenedor específico: esta opción le permitirá levantar un contenedor a su discreccón.
    5. Ver los registros de los contenedores: ya que la ejecución de `docker-compose up` se efectúa en segundo plano, usted no podra ver los logs de los contenedores. Con esta opción podrá cargar los logs.
    6. Salir: esta opción finaliza el programa.
-6. Seleccione la opción `1` en el menú.
+7. Seleccione la opción `1` en el menú.
 
 Con esto usted ya tiene un portal web corriendo con WordPress en su servidor.  
 Puede acceder al mismo a traves de su navegador escribiendo la ip de su servidor (o su nombre de dominio si dispone de uno) seguido de dos puntos y el puerto al que se redirige el contenedor de WordPress, es decir el puerto 8080*
@@ -92,7 +99,7 @@ Si desea saber más acerca del funcionamiento de Docker y Docker-Compose no dude
 ¡Las contribuciones a este proyecto son bienvenidas! Si desea agregar nuevas funcionalidades, corregir errores o mejorar la documentación, no dude en comunicarlo al propietario de este repositorio.
 
 ## Licencia
-Este proyecto se encuentra bajo licencia GNU (consulte el archivo `LICENSE` para saber más).
+Este proyecto se encuentra bajo licencia GNU (consulte el archivo `LICENSE.md` para saber más).
 
 ## Autoría
 Este proyecto ha sido realizado íntegramente por Nicolás Balboni Palma como parte del Proyecto de fin de ciclo de Admnistración de Sistemas Informáticos en Red en el IES Ciudad Jardin (Málaga).

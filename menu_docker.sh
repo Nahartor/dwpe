@@ -1,5 +1,61 @@
 #!/bin/bash
 
+# Check if running as root
+if [ "$(id -u)" -ne 0 ]; then
+  echo "This script must be run with root privileges." >&2
+  exit 1
+fi
+
+# Function to start all containers
+start_containers() {
+  docker-compose up -d
+}
+
+# Function to stop all containers
+stop_containers() {
+  docker-compose down
+}
+
+# Function to stop a specific container
+stop_specific_container() {
+  read -p "Enter the name of the container you want to stop (wordpress, db, php): " container
+  docker-compose stop $container
+}
+
+# Function to start a specific container
+start_specific_container() {
+  read -p "Enter the name of the container you want to start (wordpress, db, php): " container
+  docker-compose up -d $container
+}
+
+# Main menu
+while true; do
+  echo "==== Menu ===="
+  echo "1. Start all containers"
+  echo "2. Stop all containers"
+  echo "3. Stop a specific container"
+  echo "4. Start a specific container"
+  echo "5. View container logs"
+  echo "6. Exit"
+  echo "=============="
+
+  read -p "Select an option: " option
+
+  case $option in
+    1) start_containers ;;
+    2) stop_containers ;;
+    3) stop_specific_container ;;
+    4) start_specific_container ;;
+    5) docker-compose logs ;;
+    6) exit ;;
+    *) echo "Invalid option. Please select a valid option." ;;
+  esac
+
+  echo
+done
+
+<<Comentario
+A continuación podrá encontrar el código en español. Si desea usar este script en español solo tiene que borrar todo entre la primera linea del texto y la linea 59. 
 # Verificar si se está ejecutando como superusuario
 if [ "$(id -u)" -ne 0 ]; then
   echo "Este script debe ser ejecutado con permisos de superusuario." >&2

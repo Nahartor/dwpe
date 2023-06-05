@@ -7,7 +7,7 @@ services:
     ports:
       - 8080:80 # If port 8080 is being used on your machine by another service, modify this line and write the desired port to the left of the colon where you want to redirect the WordPress container.
     environment:
-      WORDPRESS_DB_HOST: db # Database server that WordPress will connect to*
+      WORDPRESS_DB_HOST: db # Database server that WordPress will connect to* (4)
       WORDPRESS_DB_USER: wordpress # User that WordPress will use to log in to the database (1) 
       WORDPRESS_DB_PASSWORD: wordpress # Password for the user specified in the previous line (2)
       WORDPRESS_DB_NAME: wordpress  # Name of the database associated with WordPress (3)
@@ -24,7 +24,7 @@ services:
     ports:
       - 13306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: toor # Contraseña del usuario root de la base de datos
+      MYSQL_ROOT_PASSWORD: toor # Database root user password
       MYSQL_USER: wordpress # User that WordPress will use to log in to the database (1)
       MYSQL_PASSWORD: wordpress # Password for the user specified in the previous line (2)
       MYSQL_DATABASE: wordpress  # Name of the database associated with WordPress (3)
