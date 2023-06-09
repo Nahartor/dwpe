@@ -19,7 +19,7 @@ apt install docker-compose -y
 echo "Installation completed."
 
 <<Comentario
-A continuación podrá encontrar el código en español. Si desea usar este script en español solo tiene que borrar todo entre la primera linea del texto y la linea 23. 
+A continuación podrá encontrar el código en español. Si desea usar este script en español solo tiene que borrar todo entre la primera línea del texto y la linea 23. 
 # Verificar si se está ejecutando como superusuario
 if [ "$(id -u)" -ne 0 ]; then
   echo "Este script debe ser ejecutado con permisos de superusuario." >&2

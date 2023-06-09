@@ -55,7 +55,7 @@ while true; do
 done
 
 <<Comentario
-A continuación podrá encontrar el código en español. Si desea usar este script en español solo tiene que borrar todo entre la primera linea del texto y la linea 59. 
+A continuación podrá encontrar el código en español. Si desea usar este script en español solo tiene que borrar todo entre la primera línea del texto y la linea 59. 
 # Verificar si se está ejecutando como superusuario
 if [ "$(id -u)" -ne 0 ]; then
   echo "Este script debe ser ejecutado con permisos de superusuario." >&2

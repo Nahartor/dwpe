@@ -22,7 +22,7 @@ services:
   db:
     image: mariadb:latest
     ports:
-      - 13306:3306
+      - 13306:3306 # If port 13306 is being used on your machine by another service, modify this line and write the desired port to the left of the colon where you want to redirect the WordPress container.
     environment:
       MYSQL_ROOT_PASSWORD: toor # Database root user password
       MYSQL_USER: wordpress # User that WordPress will use to log in to the database (1)

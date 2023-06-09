@@ -36,7 +36,7 @@
 
 ```dockerfile
 # Imagen base
-FROM <nombre_de_la_imagen>:<version>
+FROM <nombre_de_la_imagen>:<versión>
 
 # Instrucciones adicionales para la configuración de la imagen
 # ...
@@ -45,16 +45,16 @@ FROM <nombre_de_la_imagen>:<version>
 CMD [<comando>]
 ```
 
-## Instalación de Docker Compose
+## Instalación de Docker-Compose
 
-1. Visita el sitio web oficial de Docker Compose: [https://docs.docker.com/compose](https://docs.docker.com/compose)
-2. Descarga la versión de Docker Compose adecuada para tu sistema operativo.
+1. Visita el sitio web oficial de Docker-Compose: [https://docs.docker.com/compose](https://docs.docker.com/compose)
+2. Descarga la versión de Docker-Compose adecuada para tu sistema operativo.
 3. Sigue las instrucciones de instalación específicas para tu sistema operativo.
 4. Una vez instalado, verifica la instalación ejecutando el siguiente comando en la terminal:  
 ```docker-compose --version```  
 
 
-## Uso de Docker Compose
+## Uso de Docker-Compose
 
 1. Crea un archivo `docker-compose.yml` en el directorio de tu proyecto.
 2. Define los servicios y configuraciones necesarios en el archivo `docker-compose.yml`. Aquí puedes especificar imágenes, puertos, volúmenes, etc.  
@@ -89,13 +89,13 @@ networks:
     # ...
 
 volumes:
-<nombre_del_volumen>:
+<nombre_del_volúmen>:
     # Opciones de configuración del volumen
     # ...
 ```  
 * Reemplaza <nombre_del_servicio> con un nombre descriptivo para tu servicio o contenedor.
 
-* Reemplaza <nombre_de_la_imagen> con el nombre de la imagen de Docker que deseas utilizar, y <version> con la etiqueta de versión correspondiente.
+* Reemplaza <nombre_de_la_imagen> con el nombre de la imagen de Docker que deseas utilizar, y <versión> con la etiqueta de versión correspondiente.
 
 * Puedes especificar los puertos que deseas exponer en el host y en el contenedor utilizando la sintaxis <puerto_host>:<puerto_contenedor>. Por ejemplo, 8080:80 indica que el puerto 8080 del host se mapea al puerto 80 del contenedor.
 

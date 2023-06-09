@@ -11,7 +11,7 @@ The purpose of this project is to facilitate, especially for those who lack adva
 
 ## Project structure
 
-     wfd
+     dwpe
      ├── configuration_files
      │ ├── wp-config.php
      │ └── my.cnf
@@ -88,7 +88,7 @@ You can access it through your browser by typing the ip of your server (or your 
 
 Below are some commands that will be useful for managing your containers, configuring WordPress, MySQL, etc.
 
-* `docker ps`: This command shows the containers present on the system, their status and their aliases. The default alias of the WordPress container is "proyecto_wordpress_1" and that of MySQL is "proyecto_db_1", however some factor unrelated to this project could cause changes in this default value, so this command can facilitate container management and it may also be necessary to be able to execute the commands shown below.
+* `docker ps`: This command shows the containers present on the system, their status and their aliases. The default alias of the WordPress container is "dwpe_wordpress_1" and that of MySQL is "dwpe_db_1", however some factor unrelated to this project could cause changes in this default value, so this command can facilitate container management and it may also be necessary to be able to execute the commands shown below.
 * `docker exec -i -t <container_name> /bin/bash`: This command allows you to connect to containers and interact with them in the same way that you would with the command console of any machine. You should remember that a container uses the resources of the host system, and that a large part of its efficiency lies in having only those dependencies installed that it needs to run the service in question. Therefore, if you want to execute a specific command (such as ping) or manage a service (such as SSH or MySQL-client) you must install them first.
 * `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_name>`: this command will return the IP automatically assigned to our container. This can be very useful if, for example, we want to connect via SSH from a computer that is not the Docker host (to connect from the host computer we can use the container alias).
 **IMPORTANT:** The IP assigned to the container will change if we stop it and start it up again. Pay attention to this fact as it may cause the commands you are issuing to the container not to work.
