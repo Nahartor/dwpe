@@ -19,6 +19,8 @@ RUN password_hash=$(openssl passwd -1 "mysql")
 # Add the user with the password to the container.
 RUN useradd -m -p "$password_hash" mysql
 
+# Create directories /var/lib/mysql and /var/run/mysqld
+RUN mkdir -p /var/lib/mysql /var/run/mysqld
 
 # Set directory permissions for MySQL.
 RUN chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
