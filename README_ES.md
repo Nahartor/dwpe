@@ -62,15 +62,15 @@ No obstante, a continuación explicaremos pormenorizadamente cada una de ellas e
    4. GitHub Desktop: esta opción solo es aplicable a equipos Windows. Ya que este proyecto corre íntegramente en Linux usted debe ignorar esta opción.
    5. Download ZIP: usted puede descargar este repositorio como un archivo comprimido de extensión `.zip` y descomprimirlo en su servidor. De esta forma no tiene por qué instalar Git. Se recomienda descomprimir el contenido del archivo en el directorio `/root` 
 2. Modifique si así lo desea las variables de entorno tal y como se expone en el punto **Estructura del proyecto**.
-3. Asegúrese de que los ficheros presentes en el directorio `proyecto` pertenecen al usuario y grupo **root**. Para ello ejecute el siguiente comando con permisos de superusuario:  
-   `sudo chown -R root:root ./proyecto`
+3. Asegúrese de que los ficheros presentes en el directorio `dwpe` pertenecen al usuario y grupo **root**. Para ello ejecute el siguiente comando con permisos de superusuario:  
+   `sudo chown -R root:root ./dwpe`
 4. Asegurese de que los ficheros `install_docker_and_dependences.sh` y `menu_docker.sh` sean ficheros de tipo ejecutable. Para ello ejecute los siguientes comandos con permisos de superusuario:  
-   `chmod -x ./proyecto/install_docker_and_dependences.sh`  
-   `chmod -x ./proyecto/menu_docker.sh`
+   `chmod -x ./dwpe/install_docker_and_dependences.sh`  
+   `chmod -x ./dwpe/menu_docker.sh`
 5. Ejecute el script `install_docker_and_dependences.sh` con permisos de superusuario:  
-   `sudo bash ./proyecto/install_docker_and_dependences.sh`
+   `sudo bash ./dwpe/install_docker_and_dependences.sh`
 6. Ejecute el script `menu_docker.sh` con permisos de superusuario:  
-   `sudo bash ./proyecto/menu_docker.sh`
+   `sudo bash ./dwpe/menu_docker.sh`
    
    El script `menu_docker.sh` desplegará un menú con las siguientes opciones:
    1. Levantar todos los contenedores: esta opción ejecutará el comando `docker-compose up -d` lo cual levantará todos los contenedores necesarios para el despliegue del portal web con WordPress.
