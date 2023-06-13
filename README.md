@@ -62,15 +62,15 @@ However, below we will explain each of them in detail in order of appearance in 
     4. GitHub Desktop – This option is only applicable to Windows computers. Since this project runs entirely on Linux you should ignore this option.
     5. Download ZIP: You can download this repository as a compressed `.zip` file and unzip it on your server. This way you don't have to install Git. It is recommended to unzip the contents of the archive in the `/root` directory
 2. Modify, if desired, the environment variables as stated in the **Project structure** point.
-3. Make sure that the files present in the `project` directory belong to the user and group **root**. To do this, run the following command with superuser permissions:
-    `sudo chown -R root:root ./project`
+3. Make sure that the files present in the `dwpe` directory belong to the user and group **root**. To do this, run the following command with superuser permissions:
+    `sudo chown -R root:root ./dwpe`
 4. Make sure that the `install_docker_and_dependencies.sh` and `menu_docker.sh` files are executable files. To do this, run the following commands with superuser permissions:
-    `chmod -x ./project/install_docker_and_dependencies.sh`
-    `chmod -x ./project/menu_docker.sh`
+    `chmod -x ./dwpe/install_docker_and_dependencies.sh`
+    `chmod -x ./dwpe/menu_docker.sh`
 5. Run the `install_docker_and_dependencies.sh` script with root permissions:
-    `sudo bash ./project/install_docker_and_dependencies.sh`
+    `sudo bash ./dwpe/install_docker_and_dependencies.sh`
 6. Run the `menu_docker.sh` script with superuser permissions:
-    `sudo bash ./project/menu_docker.sh`
+    `sudo bash ./dwpe/menu_docker.sh`
    
     The `menu_docker.sh` script will display a menu with the following options:
     1. Build all containers: this option will execute the command `docker-compose up -d` which will build all the containers necessary for the deployment of the web portal with WordPress.
